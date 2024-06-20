@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".Activity_Jellyhunter">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:alpha="0.8"
+        android:src="@drawable/img_background"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/jellyhunter_IMG_title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:scaleType="fitCenter"
+            android:src="@drawable/img_title"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/jellyhunter_LAY_heartLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/jellyhunter_IMG_heart1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/img_net"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/jellyhunter_IMG_heart2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/img_net"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/jellyhunter_IMG_heart3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/img_net"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/jellyhunter_TXT_score"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="#626842"
+                android:textSize="40sp"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/jellyhunter_LAY_grid"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/jellyhunter_LAY_col0"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyhunter_LAY_c0r0"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/img_jelly"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyhunter_LAY_c0r1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/img_jelly"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyhunter_LAY_c0r2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/img_coral"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyhunter_LAY_c0r3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/img_coral"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyhunter_LAY_c0r4"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/img_coral"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyhunter_LAY_c0r5"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:src="@drawable/img_spongebob"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/jellyhunter_LAY_col1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyhunter_LAY_c1r0"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/img_jelly"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyhunter_LAY_c1r1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/img_jelly"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyhunter_LAY_c1r2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/img_coral"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyhunter_LAY_c1r3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/img_coral"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyhunter_LAY_c1r4"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/img_coral"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyhunter_LAY_c1r5"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:src="@drawable/img_spongebob"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/jellyhunter_LAY_col2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyhunter_LAY_c2r0"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/img_jelly"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyhunter_LAY_c2r1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/img_jelly"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyhunter_LAY_c2r2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/img_coral"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyhunter_LAY_c2r3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/img_coral"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyhunter_LAY_c2r4"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/img_coral"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyhunter_LAY_c2r5"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:src="@drawable/img_spongebob"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="8dp"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/jellyhunter_BTN_left"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:src="@drawable/img_arrow_left"
+                android:scaleType="fitCenter"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"/>
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/jellyhunter_BTN_right"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:src="@drawable/img_arrow_right"
+                android:scaleType="fitCenter"/>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</RelativeLayout>
