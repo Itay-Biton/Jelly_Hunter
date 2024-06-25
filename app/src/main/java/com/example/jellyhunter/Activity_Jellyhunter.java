@@ -159,5 +159,15 @@ public class Activity_Jellyhunter extends AppCompatActivity {
             handler.postDelayed(runnable, DELAY);
         }
     };
+    @Override
+    protected void onPause() {
+        handler.removeCallbacks(runnable);
+        super.onPause();
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        handler.postDelayed(runnable, DELAY);
+    }
 }
