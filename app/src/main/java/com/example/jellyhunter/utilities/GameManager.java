@@ -1,13 +1,19 @@
-package com.example.jellyhunter;
+package com.example.jellyhunter.utilities;
+
+import com.example.jellyhunter.R;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 public class GameManager {
     private final ArrayList<Integer> obstacles = new ArrayList<>();
-    private int spawnRate = 10; // safe in 1/spawnRate
+    private final ArrayList<Integer> jellyfish = new ArrayList<>();
+    private int obstaclesSpawnRate = 10; // safe in 1/obstaclesSpawnRate
+    private int jellyfishSpawnRate = 5; // get jelly in 1/jellyfishSpawnRate
     private int lives = 3;
-    private int score;
+    private int jelly_score;
+    private int meter_score;
     private int rows;
     private int cols;
     private int[][] grid;
@@ -18,7 +24,8 @@ public class GameManager {
             this.lives = initialLives;
         if (rows < 1 || cols < 1)
             throw new RuntimeException("grid too small");
-        this.score = 1 - rows;
+        this.meter_score = 1 - rows;
+        this.jelly_score = 0;
         this.rows = rows;
         this.cols = cols;
         this.hero = hero;
@@ -27,7 +34,11 @@ public class GameManager {
         this.grid[hero.getY()][hero.getX()] = hero.getImage();
 
         obstacles.add(R.drawable.img_coral);
-        obstacles.add(R.drawable.img_jelly);
+        obstacles.add(R.drawable.img_seeweed);
+
+        jellyfish.add(R.drawable.img_jelly);
+        jellyfish.add(R.drawable.img_jelly1);
+        jellyfish.add(R.drawable.img_jelly2);
     }
 
     public void restartGame(int initialLives, int[] pos) {
@@ -39,7 +50,8 @@ public class GameManager {
                 else
                     grid[r][c] = 0;
         this.lives = initialLives;
-        this.score = 1 - rows;
+        this.meter_score = 1 - rows;
+        this.jelly_score = 0;
     }
     public Hero getHero() {
         return hero;
@@ -70,20 +82,33 @@ public class GameManager {
         for (int c=0; c<cols; c++)
             grid[0][c]=0;
         generateObstacle();
-        score++;
+        generateJelly();
+        meter_score++;
         return grid;
     }
-    public boolean isHit() {
+    public int isHit() {
         if (obstacles.contains(grid[hero.getY()-1][hero.getX()])) {
             lives--;
             grid[hero.getY()][hero.getX()] = hero.getImage();
-            return true;
+            return 1;
         }
-        return lives == 0; // in case of death don't act as hurt
+        else if (jellyfish.contains(grid[hero.getY()-1][hero.getX()])) {
+            jelly_score++;
+            grid[hero.getY()][hero.getX()] = hero.getImage();
+            return 2;
+        }
+        return 0;
     }
     private void generateObstacle() {
-        if (new Random().nextInt(spawnRate) != 0) {
+        if (new Random().nextInt(obstaclesSpawnRate) != 0) {
             int obs = obstacles.get(new Random().nextInt(obstacles.size()));
+            int location = new Random().nextInt(cols);
+            grid[0][location] = obs;
+        }
+    }
+    private void generateJelly() {
+        if (new Random().nextInt(jellyfishSpawnRate) == 0) {
+            int obs = jellyfish.get(new Random().nextInt(jellyfish.size()));
             int location = new Random().nextInt(cols);
             grid[0][location] = obs;
         }
@@ -91,7 +116,11 @@ public class GameManager {
     public int getLives() {
         return lives;
     }
-    public int getScore() {
-        return Math.max(score, 0);
+    public int getMeterScore() {
+        return Math.max(meter_score, 0);
     }
+    public int getJellyScore() {
+        return Math.max(jelly_score, 0);
+    }
+
 }

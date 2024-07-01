@@ -1,4 +1,4 @@
-package com.example.jellyhunter;
+package com.example.jellyhunter.utilities;
 
 public class Hero {
     int[] locationYX;

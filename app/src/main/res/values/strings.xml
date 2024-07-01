@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Jelly Hunter</string>
+    <string name="score">Score:</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>
