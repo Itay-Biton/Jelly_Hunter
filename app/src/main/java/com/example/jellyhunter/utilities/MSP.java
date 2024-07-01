@@ -23,14 +23,14 @@ public class MSP {
         return MSP;
     }
 
-    public void saveInt(String key, int value) {
+    public void saveString(String key, String value) {
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putInt(key, value);
+        editor.putString(key, value);
         editor.apply();
     }
 
-    public int readInt(String key, int def) {
-        return prefs.getInt(key, def);
+    public String readString(String key, String def) {
+        return prefs.getString(key, def);
     }
 
 }

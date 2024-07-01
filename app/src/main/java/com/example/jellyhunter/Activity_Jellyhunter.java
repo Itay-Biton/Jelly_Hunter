@@ -18,6 +18,7 @@ import com.example.jellyhunter.utilities.GameManager;
 import com.example.jellyhunter.utilities.Hero;
 import com.example.jellyhunter.utilities.MSP;
 import com.example.jellyhunter.utilities.MoveManager;
+import com.example.jellyhunter.utilities.UserStats;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -25,7 +26,7 @@ import java.util.Objects;
 
 public class Activity_Jellyhunter extends AppCompatActivity {
     private final int startLives = 3;
-    private int DELAY = 1000;
+    private final int DELAY = 1000;
     private int gameSpeed = DELAY;
 
     private AppCompatTextView jellyhunter_TXT_jelly_score;
@@ -264,20 +265,21 @@ public class Activity_Jellyhunter extends AppCompatActivity {
 
     public void updateScoreboard() {
         MSP msp = MSP.getInstance();
-        int[] scores = new int[6];
+        UserStats[] stats = new UserStats[11];
+        UserStats current = new UserStats(
+                gameManager.getJellyScore(),
+                gameManager.getMeterScore(),
+                0,
+                0
+        );
+
+        for (int i=0; i<10; i++)
+            stats[i] = new UserStats(msp.readString("STATS"+i,"0/0/0/0"));
+        stats[10] = current;
+        Arrays.sort(stats);
 
         for (int i=0; i<5; i++)
-            scores[i] = msp.readInt("JELLY"+i,0);
-        scores[5] = gameManager.getJellyScore();
-        Arrays.sort(scores);
-        int temp;
-        for (int i=0; i<scores.length/2; i++) {
-            temp = scores[i];
-            scores[i] = scores[scores.length - i - 1];
-            scores[scores.length - i - 1] = temp;
-        }
-        for (int i=0; i<5; i++)
-            msp.saveInt("JELLY"+i, scores[i]);
+            msp.saveString("STATS"+i, stats[i].toString());
     }
 
     private final Handler handler = new Handler();
