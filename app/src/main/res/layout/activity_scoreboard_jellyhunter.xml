@@ -13,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:alpha="0.8"
         android:src="@drawable/img_bg_scoreboard"/>
 
     <androidx.appcompat.widget.LinearLayoutCompat
