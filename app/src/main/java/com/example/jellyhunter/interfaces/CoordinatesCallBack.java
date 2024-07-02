@@ -1,5 +1,5 @@
 package com.example.jellyhunter.interfaces;
 
-public interface LocationCallback {
+public interface CoordinatesCallBack {
     void goToCoords(double lat, double lng);
 }

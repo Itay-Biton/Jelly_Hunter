@@ -16,6 +16,7 @@ import androidx.appcompat.widget.AppCompatTextView;
 import com.example.jellyhunter.interfaces.SensorCallback;
 import com.example.jellyhunter.utilities.GameManager;
 import com.example.jellyhunter.utilities.Hero;
+import com.example.jellyhunter.utilities.LocationManager;
 import com.example.jellyhunter.utilities.MSP;
 import com.example.jellyhunter.utilities.MoveManager;
 import com.example.jellyhunter.utilities.UserStats;
@@ -266,11 +267,12 @@ public class Activity_Jellyhunter extends AppCompatActivity {
     public void updateScoreboard() {
         MSP msp = MSP.getInstance();
         UserStats[] stats = new UserStats[11];
+        LocationManager currntLocation = new LocationManager(this);
         UserStats current = new UserStats(
                 gameManager.getJellyScore(),
                 gameManager.getMeterScore(),
-                0,
-                0
+                currntLocation.getLat(),
+                currntLocation.getLng()
         );
 
         for (int i=0; i<10; i++)

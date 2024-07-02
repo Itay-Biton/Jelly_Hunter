@@ -7,7 +7,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageButton;
 
-import com.example.jellyhunter.interfaces.LocationCallback;
+import com.example.jellyhunter.interfaces.CoordinatesCallBack;
 
 public class Activity_Scoreboard_Jellyhunter extends AppCompatActivity {
 
@@ -32,13 +32,13 @@ public class Activity_Scoreboard_Jellyhunter extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.jellyhunter_LAY_map, fragmentMap)
                 .commit();
-        LocationCallback locationCallback = new LocationCallback() {
+        CoordinatesCallBack coordinatesCallBack = new CoordinatesCallBack() {
             @Override
             public void goToCoords(double lat, double lng) {
                 fragmentMap.goToCoords(lat, lng);
             }
         };
-        Fragment_Scoreboard fragmentScoreboard = new Fragment_Scoreboard(locationCallback);
+        Fragment_Scoreboard fragmentScoreboard = new Fragment_Scoreboard(coordinatesCallBack);
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.jellyhunter_LAY_scoreboard, fragmentScoreboard)
                 .commit();

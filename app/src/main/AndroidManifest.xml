@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
@@ -19,6 +21,7 @@
         <activity
             android:name=".Activity_Scoreboard_Jellyhunter"
             android:exported="false" />
+
         <activity
             android:name=".Activity_Main_Menu_Jellyhunter"
             android:exported="true">
@@ -28,9 +31,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".Activity_Jellyhunter"
             android:exported="true" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/MAPS_API_KEY" />
     </application>
 
 </manifest>

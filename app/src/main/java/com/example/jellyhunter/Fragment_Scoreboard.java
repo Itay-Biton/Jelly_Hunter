@@ -11,12 +11,12 @@ import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.fragment.app.Fragment;
 
-import com.example.jellyhunter.interfaces.LocationCallback;
+import com.example.jellyhunter.interfaces.CoordinatesCallBack;
 import com.example.jellyhunter.utilities.MSP;
 import com.example.jellyhunter.utilities.UserStats;
 
 public class Fragment_Scoreboard extends Fragment {
-    private final LocationCallback locationCallback;
+    private final CoordinatesCallBack coordinatesCallBack;
     private LinearLayoutCompat jellyhunter_LAY_score0;
     private LinearLayoutCompat jellyhunter_LAY_score1;
     private LinearLayoutCompat jellyhunter_LAY_score2;
@@ -50,8 +50,8 @@ public class Fragment_Scoreboard extends Fragment {
     private AppCompatTextView jellyhunter_TXT_meters_score8;
     private AppCompatTextView jellyhunter_TXT_meters_score9;
 
-    public Fragment_Scoreboard(LocationCallback locationCallback) {
-        this.locationCallback = locationCallback;
+    public Fragment_Scoreboard(CoordinatesCallBack coordinatesCallBack) {
+        this.coordinatesCallBack = coordinatesCallBack;
     }
 
     @Nullable
@@ -145,6 +145,6 @@ public class Fragment_Scoreboard extends Fragment {
         double lat = userStats.getLat();
         double lng = userStats.getLng();
 
-        locationCallback.goToCoords(lat, lng);
+        coordinatesCallBack.goToCoords(lat, lng);
     }
 }
