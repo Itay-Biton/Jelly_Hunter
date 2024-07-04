@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.jellyhunter.interfaces.CoordinatesCallBack;
 import com.example.jellyhunter.utilities.MSP;
-import com.example.jellyhunter.utilities.UserStats;
+import com.example.jellyhunter.gameUtils.UserStats;
 
 public class Fragment_Scoreboard extends Fragment {
     private final CoordinatesCallBack coordinatesCallBack;

@@ -11,7 +11,7 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="16dp"
+            android:paddingHorizontal="16dp"
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -25,11 +25,12 @@
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="9">
+                android:layout_weight="9"
+                android:background="#19000000">
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.LinearLayoutCompat
@@ -56,7 +57,13 @@
                             android:gravity="center"
                             android:text="00"
                             android:textStyle="bold"
+                            android:textColor="#5C2603"
                             app:autoSizeTextType="uniform"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"/>
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/jellyhunter_IMG_meters_score0"
@@ -74,6 +81,7 @@
                             android:gravity="center"
                             android:text="00"
                             android:textStyle="bold"
+                            android:textColor="#5C2603"
                             app:autoSizeTextType="uniform"/>
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -102,7 +110,13 @@
                             android:gravity="center"
                             android:text="00"
                             android:textStyle="bold"
+                            android:textColor="#5C2603"
                             app:autoSizeTextType="uniform"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"/>
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/jellyhunter_IMG_meters_score1"
@@ -120,6 +134,7 @@
                             android:gravity="center"
                             android:text="00"
                             android:textStyle="bold"
+                            android:textColor="#5C2603"
                             app:autoSizeTextType="uniform"/>
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -148,7 +163,13 @@
                             android:gravity="center"
                             android:text="00"
                             android:textStyle="bold"
+                            android:textColor="#5C2603"
                             app:autoSizeTextType="uniform"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"/>
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/jellyhunter_IMG_meters_score2"
@@ -166,6 +187,7 @@
                             android:gravity="center"
                             android:text="00"
                             android:textStyle="bold"
+                            android:textColor="#5C2603"
                             app:autoSizeTextType="uniform"/>
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -194,7 +216,13 @@
                             android:gravity="center"
                             android:text="00"
                             android:textStyle="bold"
+                            android:textColor="#5C2603"
                             app:autoSizeTextType="uniform"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"/>
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/jellyhunter_IMG_meters_score3"
@@ -212,6 +240,7 @@
                             android:gravity="center"
                             android:text="00"
                             android:textStyle="bold"
+                            android:textColor="#5C2603"
                             app:autoSizeTextType="uniform"/>
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -240,7 +269,13 @@
                             android:gravity="center"
                             android:text="00"
                             android:textStyle="bold"
+                            android:textColor="#5C2603"
                             app:autoSizeTextType="uniform"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"/>
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/jellyhunter_IMG_meters_score4"
@@ -258,6 +293,7 @@
                             android:gravity="center"
                             android:text="00"
                             android:textStyle="bold"
+                            android:textColor="#5C2603"
                             app:autoSizeTextType="uniform"/>
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -286,7 +322,12 @@
                             android:gravity="center"
                             android:text="00"
                             android:textStyle="bold"
+                            android:textColor="#5C2603"
                             app:autoSizeTextType="uniform"/>
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"/>
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/jellyhunter_IMG_meters_score5"
@@ -304,6 +345,7 @@
                             android:gravity="center"
                             android:text="00"
                             android:textStyle="bold"
+                            android:textColor="#5C2603"
                             app:autoSizeTextType="uniform"/>
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -332,7 +374,13 @@
                             android:gravity="center"
                             android:text="00"
                             android:textStyle="bold"
+                            android:textColor="#5C2603"
                             app:autoSizeTextType="uniform"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"/>
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/jellyhunter_IMG_meters_score6"
@@ -350,6 +398,7 @@
                             android:gravity="center"
                             android:text="00"
                             android:textStyle="bold"
+                            android:textColor="#5C2603"
                             app:autoSizeTextType="uniform"/>
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -378,7 +427,13 @@
                             android:gravity="center"
                             android:text="00"
                             android:textStyle="bold"
+                            android:textColor="#5C2603"
                             app:autoSizeTextType="uniform"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"/>
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/jellyhunter_IMG_meters_score7"
@@ -396,6 +451,7 @@
                             android:gravity="center"
                             android:text="00"
                             android:textStyle="bold"
+                            android:textColor="#5C2603"
                             app:autoSizeTextType="uniform"/>
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -424,7 +480,13 @@
                             android:gravity="center"
                             android:text="00"
                             android:textStyle="bold"
+                            android:textColor="#5C2603"
                             app:autoSizeTextType="uniform"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"/>
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/jellyhunter_IMG_meters_score8"
@@ -442,6 +504,7 @@
                             android:gravity="center"
                             android:text="00"
                             android:textStyle="bold"
+                            android:textColor="#5C2603"
                             app:autoSizeTextType="uniform"/>
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -470,7 +533,13 @@
                             android:gravity="center"
                             android:text="00"
                             android:textStyle="bold"
+                            android:textColor="#5C2603"
                             app:autoSizeTextType="uniform"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"/>
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/jellyhunter_IMG_meters_score9"
@@ -488,6 +557,7 @@
                             android:gravity="center"
                             android:text="00"
                             android:textStyle="bold"
+                            android:textColor="#5C2603"
                             app:autoSizeTextType="uniform"/>
 
                     </androidx.appcompat.widget.LinearLayoutCompat>

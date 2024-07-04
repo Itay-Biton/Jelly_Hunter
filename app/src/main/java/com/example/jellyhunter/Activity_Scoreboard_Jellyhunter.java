@@ -8,21 +8,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageButton;
 
 import com.example.jellyhunter.interfaces.CoordinatesCallBack;
+import com.example.jellyhunter.utilities.SoundManager;
 
 public class Activity_Scoreboard_Jellyhunter extends AppCompatActivity {
 
     private AppCompatImageButton jellyhunter_BTN_back;
 
-    private MediaPlayer[] soundEffects;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scoreboard_jellyhunter);
 
-        soundEffects = new MediaPlayer[] {
-                MediaPlayer.create(this, R.raw.bubble_transition)
-        };
-        soundEffects[0].start();
+        SoundManager.bubble_transition();
         initFragments();
         findViews();
     }
@@ -53,14 +50,9 @@ public class Activity_Scoreboard_Jellyhunter extends AppCompatActivity {
         });
     }
 
-    private void stopSounds() {
-        for (MediaPlayer soundEffect : soundEffects)
-            soundEffect.stop();
-    }
-
     @Override
     protected void onPause() {
         super.onPause();
-        stopSounds();
+        SoundManager.stop();
     }
 }

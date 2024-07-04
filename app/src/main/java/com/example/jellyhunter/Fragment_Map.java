@@ -9,6 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.jellyhunter.gameUtils.UserStats;
+import com.example.jellyhunter.utilities.MSP;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -30,14 +32,25 @@ public class Fragment_Map extends Fragment implements OnMapReadyCallback {
     }
 
     public void goToCoords(double lat, double lng) {
-        // Add a marker in Sydney and move the camera
         LatLng pos = new LatLng(lat, lng);
-        googleMap.addMarker(new MarkerOptions().position(pos).title("Marker in Sydney"));
+        googleMap.addMarker(new MarkerOptions().position(pos));
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pos, 15));
     }
 
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         this.googleMap = googleMap;
+        drawMarkers();
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(32, 35), 6));
+    }
+
+    private void drawMarkers() {
+        MSP msp = MSP.getInstance();
+        UserStats usr;
+        for (int i = 0; i < 10; i++) {
+            usr = new UserStats(msp.readString("STATS"+i,"0/0/0/0"));
+            LatLng pos = new LatLng(usr.getLat(), usr.getLng());
+            googleMap.addMarker(new MarkerOptions().position(pos));
+        }
     }
 }

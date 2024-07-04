@@ -1,13 +1,19 @@
 package com.example.jellyhunter;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
+import android.content.pm.PackageManager;
+import android.Manifest;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageButton;
+import androidx.core.app.ActivityCompat;
+
+import com.example.jellyhunter.utilities.SoundManager;
 
 public class Activity_Main_Menu_Jellyhunter extends AppCompatActivity {
+    private static final int REQUEST_FINELOCATION_PERMISSION = 999;
+    private static final int REQUEST_COARSELOCATION_PERMISSION = 998;
 
     private AppCompatImageButton jellyhunter_BTN_launch;
     private AppCompatImageButton jellyhunter_BTN_scoreboard;
@@ -17,7 +23,6 @@ public class Activity_Main_Menu_Jellyhunter extends AppCompatActivity {
     private AppCompatImageButton jellyhunter_BTN_button_control;
     private AppCompatImageButton jellyhunter_BTN_sensor_control;
 
-    private MediaPlayer[] soundEffects;
 
     private int controlsOptions = 0; // 0 buttons, 1 sensors
     private int speedOptions = 0; // 0 slow, 1 fast, 2 tilt
@@ -25,15 +30,24 @@ public class Activity_Main_Menu_Jellyhunter extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_menu_jellyhunter);
-        soundEffects = new MediaPlayer[] {
-                MediaPlayer.create(this, R.raw.bubble_transition)
-        };
-        soundEffects[0].start();
-
+        SoundManager.bubble_transition();
         findViews();
 
         changeSpeed(speedOptions);
         changeControls(controlsOptions);
+        requestLocationPermission();
+    }
+
+    private void requestLocationPermission() {
+        String[] permissions = new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION  };
+
+        if (ActivityCompat.checkSelfPermission(this, permissions[0]) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, permissions, REQUEST_FINELOCATION_PERMISSION);
+        }
+        if (ActivityCompat.checkSelfPermission(this, permissions[1]) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, permissions, REQUEST_COARSELOCATION_PERMISSION);
+        }
     }
     private void findViews() {
 
@@ -109,16 +123,9 @@ public class Activity_Main_Menu_Jellyhunter extends AppCompatActivity {
         controlsOptions = option;
     }
 
-
-
-    private void stopSounds() {
-        for (MediaPlayer soundEffect : soundEffects)
-            soundEffect.stop();
-    }
-
     @Override
     protected void onPause() {
         super.onPause();
-        stopSounds();
+        SoundManager.stop();
     }
 }

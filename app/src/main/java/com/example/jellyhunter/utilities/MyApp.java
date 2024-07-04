@@ -7,5 +7,6 @@ public class MyApp extends Application {
     public void onCreate() {
         super.onCreate();
         MSP.init(this);
+        SoundManager.init(this);
     }
 }

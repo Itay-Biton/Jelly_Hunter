@@ -1,4 +1,4 @@
-package com.example.jellyhunter.utilities;
+package com.example.jellyhunter.gameUtils;
 
 import androidx.annotation.NonNull;
 

@@ -1,9 +1,8 @@
-package com.example.jellyhunter.utilities;
+package com.example.jellyhunter.gameUtils;
 
 import com.example.jellyhunter.R;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 
 public class GameManager {

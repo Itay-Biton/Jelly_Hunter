@@ -1,7 +1,6 @@
 package com.example.jellyhunter;
 
 import android.content.Context;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.content.Intent;
 import android.os.Handler;
@@ -14,15 +13,15 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 
 import com.example.jellyhunter.interfaces.SensorCallback;
-import com.example.jellyhunter.utilities.GameManager;
-import com.example.jellyhunter.utilities.Hero;
+import com.example.jellyhunter.gameUtils.GameManager;
+import com.example.jellyhunter.gameUtils.Hero;
 import com.example.jellyhunter.utilities.LocationManager;
 import com.example.jellyhunter.utilities.MSP;
 import com.example.jellyhunter.utilities.MoveManager;
-import com.example.jellyhunter.utilities.UserStats;
+import com.example.jellyhunter.utilities.SoundManager;
+import com.example.jellyhunter.gameUtils.UserStats;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Objects;
 
 public class Activity_Jellyhunter extends AppCompatActivity {
@@ -42,26 +41,20 @@ public class Activity_Jellyhunter extends AppCompatActivity {
     private int cols;
     private Vibrator vib;
     private MoveManager moveManager;
+    private LocationManager locationManager;
     private int controlsOptions = 0; // 0 buttons, 1 sensors
     private int speedOptions = 0; // 0 slow, 1 fast, 2 tilt
-    private MediaPlayer[] soundEffects;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jellyhunter);
         vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        soundEffects = new MediaPlayer[] {
-                MediaPlayer.create(this, R.raw.spongebob_walk1),
-                MediaPlayer.create(this, R.raw.spongebob_walk2),
-                MediaPlayer.create(this, R.raw.spongebob_ouch),
-                MediaPlayer.create(this, R.raw.ding),
-                MediaPlayer.create(this, R.raw.try_again),
-                MediaPlayer.create(this, R.raw.im_ready)
-        };
-        soundEffects[5].start();
+        SoundManager.gameMusic();
+        SoundManager.im_ready();
         findViews();
 
+        locationManager = new LocationManager(this);
         initMoveManager();
         moveManager.start();
         getControls();
@@ -140,9 +133,9 @@ public class Activity_Jellyhunter extends AppCompatActivity {
     }
     private void move(String dir) {
         if (Objects.equals(dir, "left"))
-            soundEffects[0].start();
+            SoundManager.walk1();
         else
-            soundEffects[1].start();
+            SoundManager.walk2();
 
         int[][] from_to = gameManager.move(dir);
         updateHeroMovement(from_to[0], from_to[1]);
@@ -160,7 +153,7 @@ public class Activity_Jellyhunter extends AppCompatActivity {
     }
     private void updateStats(int lives, int jelly_score, int meter_score) {
         if (lives == 0) {
-            soundEffects[4].start();
+            SoundManager.try_again();
             vib.vibrate(600);
             Toast.makeText(this, "Ho No! Try again!\nScore: "+jelly_score, Toast.LENGTH_SHORT).show();
             updateScoreboard();
@@ -259,11 +252,6 @@ public class Activity_Jellyhunter extends AppCompatActivity {
         };
     }
 
-    private void stopSounds() {
-        for (MediaPlayer soundEffect : soundEffects)
-            soundEffect.stop();
-    }
-
     public void updateScoreboard() {
         MSP msp = MSP.getInstance();
         UserStats[] stats = new UserStats[11];
@@ -271,8 +259,8 @@ public class Activity_Jellyhunter extends AppCompatActivity {
         UserStats current = new UserStats(
                 gameManager.getJellyScore(),
                 gameManager.getMeterScore(),
-                currntLocation.getLat(),
-                currntLocation.getLng()
+                locationManager.getLatitude(),
+                locationManager.getLongitude()
         );
 
         for (int i=0; i<10; i++)
@@ -290,11 +278,11 @@ public class Activity_Jellyhunter extends AppCompatActivity {
         public void run() {
             int hitState = gameManager.isHit();
             if (hitState == 1) { // hit
-                soundEffects[2].start();
+                SoundManager.ouch();
                 vib.vibrate(100);
             }
             else if (hitState == 2) { // jelly
-                soundEffects[3].start();
+                SoundManager.ding();
                 vib.vibrate(100);
             }
             updateUI(gameManager.updateGame());
@@ -308,7 +296,8 @@ public class Activity_Jellyhunter extends AppCompatActivity {
         super.onPause();
         handler.removeCallbacks(runnable);
         stopControls();
-        stopSounds();
+        SoundManager.stop();
+        locationManager.detachLocationListener();
     }
 
     @Override
@@ -317,5 +306,6 @@ public class Activity_Jellyhunter extends AppCompatActivity {
         handler.postDelayed(runnable, gameSpeed);
         moveManager.start();
         setControls();
+        locationManager.attachLocationListener();
     }
 }
